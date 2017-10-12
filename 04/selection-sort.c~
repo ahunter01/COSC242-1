@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define ARRAY_MAX 10
+
+void selection_sort(int *a, int n) {
+    int count, p, smallest, temp;
+    for (p = 0; p < n -1; p ++){
+        smallest = p;
+        for (count = p+1; count < n; count++){
+            if (a[count] < a[smallest]) {
+                smallest = count;
+            }
+        }
+        temp = a[smallest];
+        a[smallest] = a[p];
+        a[p] = temp;
+    }
+ 
+}
+
+int main(void) {
+    int my_array[ARRAY_MAX];
+    int i, count = 0;
+
+
+    while (count < ARRAY_MAX && 1 == scanf("%d", &my_array[count])) {
+        count++;
+    }
+
+    selection_sort(my_array, count);
+    for (i = 0; i < count; i++) {
+        printf("%d\n", my_array[i]);
+    }
+    return EXIT_SUCCESS;
+}

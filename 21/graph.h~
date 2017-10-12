@@ -1,0 +1,12 @@
+#ifndef GRAPH_H_
+#define GRAPH_H_
+
+typedef struct graphrec *graph;
+
+extern void graph_print(graph g);
+extern graph graph_new(int vertices);
+extern void graph_free(graph g);
+extern void graph_insert(graph g, int num);
+extern void graph_bfs(graph g, int source);
+
+#endif

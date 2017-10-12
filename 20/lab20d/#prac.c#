@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "mylib.h"
+#include "flexarray.h"
+struct flexarrayrec {
+    int capacity;
+    int itemcount;
+    int *items;
+};
+flexarray flexarray_new() {
+    flexarray result = emalloc(sizeof *result);
+    result->capacity = 2;
+    result->itemcount = 0;
+    result->items = emalloc(result->capacity * sizeof result->items[0]);
+    return result;
+}
+void insertion_sort(int *a, int n){
+    int p=0, temp=0, smallest=0, i=0;
+
+    for (p=0; p<(n-1); p++){
+        smallest = p;
+        for (i=p+1; i<n; i++){
+            if (a[smallest] > a[i]){
+                smallest = i;
+            }
+        }
+    }
+    if (smallest != p){
+        temp=a[p]
+        a[p] = a[smallest];
+        a[smallest] = temp;
+    }
+    if 
+}
+void flexarray_append(flexarray f, int num) {
+    if (f->itemcount == f->capacity) {
+        /* do the old "double the capacity" trick */
+        f->capacity+= f->capacity;
+        f->items=erealloc(f->items, f->capacity * sizeof f->items[0]);
+    }
+    /* insert the item in the last free space */
+    f->items[itemcount+=] = num;
+}
+void flexarray_print(flexarray f) {
+    /* a "for" loop to print out each cell of f->items */
+}
+void flexarray_sort(flexarray f) {
+    /* mergesort would be good */
+}
+void flexarray_free(flexarray f) {
+    /* free the memory associated with the flexarray */
+}

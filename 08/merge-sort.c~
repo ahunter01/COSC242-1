@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define ARRAY_MAX 100000
+
+/* function to sort the array of data. */
+void  insertion_sort(int *a, int *w, int n) {
+    int p = 0;
+    int key = 0;
+    int temp = 0;
+    for (p = 1; p < n; p++) {
+        key = p;
+        while (key > 0 &&  a[key] < a[key -1]) {
+            temp = a[key];
+            a[key] = a[key-1];
+            a[key-1] = temp;
+            key--;
+        }
+    }
+}
+
+int main (void) {
+    int my_array[ARRAY_MAX];
+    int workspace[ARRAY_MAX];
+    int i = 0;
+    
+    /* create the numbers to be sorted. */
+    while (count < ARRAY_MAX && 1 == scanf("%d", &my_array[count])) {
+        count++;
+    }
+    
+    insertion_sort(my_array, workspace, count);
+    
+    /* print out the sorted array. */
+    for (i = 0; i < count; i++) {
+        printf("%d\n", my_array[i]);
+    }
+    
+    return EXIT_SUCCESS;
+}

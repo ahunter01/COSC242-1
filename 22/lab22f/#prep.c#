@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "htable.h"
+#include "mylib.h"
+
+struct htablerec {
+    int capacity;
+    int num_keys;
+    char **keys;
+};
+
+htable htable_new(int capacity){
+    int i=0;
+    htable result = emalloc(sizeof* result);
+    result->capacity=capacity;
+    result->num_keys=0;
+    result->keys = emalloc(result->capacity sizeof * keys[0]);
+    for (i=0; i < result->capacity; i++){
+        result->keys[i] = NULL;
+    }
+    return result;
+
+}
